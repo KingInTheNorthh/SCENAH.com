@@ -24,46 +24,8 @@ A modern, responsive reading blog built with React, Vite, and Tailwind CSS. Feat
 - **Lucide React** - Beautiful icons
 - **PostCSS** - CSS processing
 
-## 📦 Installation
 
-1. **Clone the repository** (if you haven't already):
-   ```bash
-   git clone <repository-url>
-   cd Senabday
-   ```
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser** and navigate to `http://localhost:5173`
-
-## 🎨 Project Structure
-
-```
-src/
-├── components/          # Reusable components
-│   ├── Navbar.jsx      # Navigation with theme toggle
-│   └── StoryCard.jsx   # Animated story cards
-├── contexts/           # React contexts
-│   └── ThemeContext.jsx # Dark/light mode management
-├── data/              # Static data
-│   └── stories.js     # Story and author data
-├── pages/             # Page components
-│   ├── Home.jsx       # Landing page
-│   ├── About.jsx      # Author page
-│   ├── Stories.jsx    # All stories with filters
-│   └── StoryDetail.jsx # Individual story page
-├── App.jsx            # Main app component
-├── main.jsx           # App entry point
-└── index.css          # Global styles and Tailwind
-```
 
 ## 📚 Stories Included
 
@@ -101,45 +63,5 @@ The blog comes with 5 beautifully written placeholder stories:
 - Combined search and filter functionality
 - Clean, intuitive interface
 
-## 🛠️ Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-## 🎨 Customization
-
-### Colors
-The theme uses a purple/pink gradient. You can customize colors in:
-- `tailwind.config.js` - Theme colors
-- `src/index.css` - Custom CSS variables
-
-### Content
-- Edit `src/data/stories.js` to add/modify stories
-- Update author information in the same file
-- Replace placeholder images with your own
-
-### Styling
-- Modify `src/index.css` for global styles
-- Update component-specific styles in each component file
-- Customize Tailwind classes throughout the components
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests!
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
 
 **Enjoy reading! 📖✨** 
