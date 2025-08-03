@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, BookOpen, Sparkles, Heart } from 'lucide-react'
-import { stories } from '../data/stories'
+import { loadStories } from '../utils/storyStorage'
 import StoryCard from '../components/StoryCard'
 import { useState, useEffect } from 'react'
 
@@ -108,7 +108,14 @@ const TypingAnimation = () => {
 }
 
 const Home = () => {
-  const featuredStories = stories.slice(0, 3)
+  const [featuredStories, setFeaturedStories] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const stories = loadStories()
+    setFeaturedStories(stories.slice(0, 3))
+    setIsLoading(false)
+  }, [])
 
   return (
     <div className="min-h-screen">
@@ -141,7 +148,7 @@ const Home = () => {
               className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
             >
 Some stories spill out like confessions. Others sneak in, uninvited, wearing the mood I woke up with.
-This blog isn’t just a collection of thoughts — it’s a mirror, sometimes foggy, sometimes painfully clear. The words here aren’t always planned. They’re pulled from moments that mattered, moods that lingered, and truths I didn’t know I was ready to say. If you find pieces of yourself in them, good. That means they did their job.
+This blog isn't just a collection of thoughts — it's a mirror, sometimes foggy, sometimes painfully clear. The words here aren't always planned. They're pulled from moments that mattered, moods that lingered, and truths I didn't know I was ready to say. If you find pieces of yourself in them, good. That means they did their job.
 
             </motion.p>
 
@@ -205,19 +212,35 @@ This blog isn’t just a collection of thoughts — it’s a mirror, sometimes f
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredStories.map((story, index) => (
-              <motion.div
-                key={story.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <StoryCard story={story} />
-              </motion.div>
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="flex justify-center py-12">
+              <div className="w-8 h-8 border-4 border-navy-600 border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : featuredStories.length === 0 ? (
+            <div className="text-center py-12">
+              <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">
+                No stories yet
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Check back soon for new stories!
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredStories.map((story, index) => (
+                <motion.div
+                  key={story.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <StoryCard story={story} />
+                </motion.div>
+              ))}
+            </div>
+          )}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -247,7 +270,7 @@ This blog isn’t just a collection of thoughts — it’s a mirror, sometimes f
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="text-4xl font-bold text-white mb-2">47</div>
+              <div className="text-4xl font-bold text-white mb-2">{featuredStories.length > 0 ? featuredStories.length : 0}</div>
                              <div className="text-navy-100">Stories Published</div>
             </motion.div>
             <motion.div
