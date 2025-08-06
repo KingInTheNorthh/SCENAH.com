@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Clock, Calendar, Tag } from 'lucide-react'
+import LikeButton from './LikeButton'
 
 const StoryCard = ({ story }) => {
   return (
@@ -39,7 +40,7 @@ const StoryCard = ({ story }) => {
             </p>
 
             {/* Meta information */}
-            <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+            <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-4">
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-1">
                   <Clock className="w-3 h-3" />
@@ -50,6 +51,15 @@ const StoryCard = ({ story }) => {
                   <span>{new Date(story.publishDate).toLocaleDateString()}</span>
                 </div>
               </div>
+            </div>
+
+            {/* Like Button */}
+            <div className="mb-4">
+              <LikeButton 
+                storyId={story.id} 
+                size="small"
+                className="w-full"
+              />
             </div>
 
             {/* Tags */}

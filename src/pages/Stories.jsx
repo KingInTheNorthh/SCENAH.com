@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Search, Filter, BookOpen } from 'lucide-react'
 import { loadStories } from '../utils/storyStorage'
+import { initializeDefaultLikes } from '../utils/likesStorage'
 import StoryCard from '../components/StoryCard'
 
 const Stories = () => {
@@ -13,6 +14,8 @@ const Stories = () => {
   useEffect(() => {
     const loadedStories = loadStories()
     setStories(loadedStories)
+    // Initialize default likes for stories
+    initializeDefaultLikes(loadedStories)
     setIsLoading(false)
   }, [])
 

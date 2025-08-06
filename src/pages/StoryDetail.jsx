@@ -1,7 +1,10 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Clock, Calendar, Tag, Share2, Heart } from 'lucide-react'
+import { ArrowLeft, Clock, Calendar, Tag } from 'lucide-react'
 import { getStoryById, loadStories } from '../utils/storyStorage'
+import { initializeDefaultLikes } from '../utils/likesStorage'
+import LikeButton from '../components/LikeButton'
+import ShareButton from '../components/ShareButton'
 import { useState, useEffect } from 'react'
 
 const StoryDetail = () => {
@@ -21,6 +24,9 @@ const StoryDetail = () => {
         .filter(s => s.id !== currentStory.id && s.category === currentStory.category)
         .slice(0, 2)
       setRelatedStories(related)
+      
+      // Initialize default likes for all stories
+      initializeDefaultLikes(allStories)
     }
     setIsLoading(false)
   }, [id])
@@ -146,14 +152,16 @@ const StoryDetail = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"
           >
-            <button className="inline-flex items-center justify-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors duration-200">
-              <Heart className="w-5 h-5 mr-2" />
-              Like Story
-            </button>
-            <button className="inline-flex items-center justify-center px-6 py-3 border-2 border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-600 hover:text-white font-semibold rounded-lg transition-colors duration-200">
-              <Share2 className="w-5 h-5 mr-2" />
-              Share Story
-            </button>
+            <LikeButton 
+              storyId={story.id} 
+              size="large"
+              className="flex-1 sm:flex-none"
+            />
+            <ShareButton 
+              story={story}
+              size="large"
+              className="flex-1 sm:flex-none"
+            />
           </motion.div>
         </div>
       </section>

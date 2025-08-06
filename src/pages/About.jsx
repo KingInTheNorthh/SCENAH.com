@@ -91,23 +91,15 @@ const About = () => {
                 </p>
                 
                 <p className="mb-4">
-                  When I'm not crafting stories, you'll find me exploring the lush forests of the Pacific Northwest, 
-                  where the misty mornings and towering evergreens provide endless inspiration. My writing desk 
-                  overlooks a garden that changes with the seasons, each bloom and leaf telling its own story.
+                  But Sena is more than just spreadsheets and statements. She's a passionate writer, an avid reader, and a traveler at heart. Whether she's exploring bustling cities or quiet corners of the world, she finds inspiration in the people she meets and the places she sees. Sightseeing isn’t just a hobby—it’s her way of connecting with culture, history, and the unexpected beauty of everyday life.
                 </p>
                 
                 <p className="mb-4">
-                  I believe that every person has a story worth telling, and every moment holds the potential 
-                  for magic. My goal is to capture those fleeting moments of wonder and transform them into 
-                  narratives that resonate with readers across the world. Whether it's a tale of adventure, 
-                  a story of love, or a journey of self-discovery, I strive to create worlds that feel both 
-                  familiar and extraordinary.
+                  When she’s not crunching numbers or crafting prose, you’ll likely find her curled up with a good book or laughing along to a classic sitcom. Her love for storytelling—whether through fiction, finance, or comedy—shapes the way she sees the world: with wit, warmth, and a keen sense of perspective.
                 </p>
                 
                 <p>
-                  Through my writing, I hope to remind readers that the ordinary can be extraordinary, 
-                  that love can be found in unexpected places, and that every ending is just the beginning 
-                  of a new adventure. Thank you for joining me on this journey through words and imagination.
+                  Sena believes that life, like accounting, is about balance. And she’s committed to living hers with purpose, curiosity, and just the right dose of humor.
                 </p>
               </div>
               

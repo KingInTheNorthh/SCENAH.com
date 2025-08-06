@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, BookOpen, Sparkles, Heart } from 'lucide-react'
 import { loadStories } from '../utils/storyStorage'
+import { initializeDefaultLikes } from '../utils/likesStorage'
 import StoryCard from '../components/StoryCard'
 import { useState, useEffect } from 'react'
 
@@ -114,6 +115,8 @@ const Home = () => {
   useEffect(() => {
     const stories = loadStories()
     setFeaturedStories(stories.slice(0, 3))
+    // Initialize default likes for stories
+    initializeDefaultLikes(stories)
     setIsLoading(false)
   }, [])
 

@@ -194,18 +194,18 @@ And as I read those words, I know that their love lives on, not just in the lett
     readTime: "15 min read",
     publishDate: "2023-12-20",
     image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop",
-    tags: ["love", "letters", "lgbtq+"]
+    tags: ["love", "letters"]
   }
 ]
 
 export const author = {
   name: "Sena Amuzu-Sewornu",
-  bio: "Sena Amuzu-Sewornu is a Chartered Accountant whose love for reading and writing stemmed from her childhood. Her witty, inspirational and pure portrayal of life makes every piece one worth reading.",
+  bio: "Sena Amuzu-Sewornu is a Chartered Accountant with a sharp eye for detail and a deep appreciation for the stories numbers tell. With years of experience navigating the complexities of finance, audit, and strategy, she brings clarity and precision to every balance sheet—and a touch of curiosity to every ledger.",
   image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop",
   location: "Accra, Ghana.",
-  website: "https://sarahchenwrites.com",
+  website: "scenah.com",
   social: {
-    twitter: "@sarahchenwrites",
+    twitter: "@scenah21",
     instagram: "@mz_scenah",
     email: "s.a.serwornu@gmail.com"
   },
